@@ -17,5 +17,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^lineBot_/', include('bot.urls')),
+    url(r'^lineBot_/', include('lineBot_.urls')),
 ]
