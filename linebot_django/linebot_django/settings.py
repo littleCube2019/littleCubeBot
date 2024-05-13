@@ -25,7 +25,7 @@ SECRET_KEY = '^=q5u7pg1xe2fw#)g_m43t2o--tfn7y$w4f*vwewh1+&b5tg53'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://littlecubebot.onrender.com"]
 
 
 # Application definition

@@ -1,7 +1,7 @@
-from django.conf.urls import include, url
+from django.conf.urls import include,  re_path
 from . import views
 # 用來串接callback主程式
 urlpatterns = [
-    url('^callback/', views.callback),
+    re_path('^callback/', views.callback),
 ]
 
