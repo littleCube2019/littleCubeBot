@@ -73,10 +73,10 @@ def resHandler(m):
         content = "假裝你接收到空白訊息，隨機回復生成文字"
         response = None
         if len(mesList) > 1:
-            response =  model.generate_content(mesList[1])
+            response =  model.generate_content(mesList[1] + ",回覆請簡短")
             return response.text
         else:
-            response =  model.generate_content(content)
+            response =  model.generate_content(content + ",回覆請簡短")
             return response.text
         return "好像出了點錯誤QQ"
       
