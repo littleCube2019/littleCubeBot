@@ -29,8 +29,7 @@ import requests
 from pyquery import PyQuery as pq
 import re
 
-api_key = 'AIzaSyBDAtzCnh-LSFqM71PpUsQgIo1YQRz9B2c'
-genai.configure(api_key = api_key)
+genai.configure(api_key = settings.GEMINI_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
 def resHandler(m):
