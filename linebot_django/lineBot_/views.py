@@ -8,6 +8,8 @@ from linebot.models import MessageEvent, TextSendMessage
 
 import requests
 from pyquery import PyQuery as pq
+import google.generativeai as genai
+import os
 payload = {
 'from': '/bbs/Gossiping/index.html',
 'yes': 'yes'
@@ -27,7 +29,9 @@ import requests
 from pyquery import PyQuery as pq
 import re
 
-
+api_key = 'AIzaSyBDAtzCnh-LSFqM71PpUsQgIo1YQRz9B2c'
+genai.configure(api_key = api_key)
+model = genai.GenerativeModel('gemini-pro')
 
 def resHandler(m):
     BOARD = ["Gossiping","C_Chat","Baseball","Beauty","LOL"]
@@ -64,7 +68,12 @@ def resHandler(m):
             
 
         return crawler(board,goods,page)
-            
+    elif re.search("chat", m) is not None: 
+        mesList = m.split()
+        if len(mesList) > 1:
+            return model.generate_content(mesList[1])
+        else:
+            return model.generate_content('假裝你接收到空白訊息，隨機回復生成文字')
     else:
         return m
 
