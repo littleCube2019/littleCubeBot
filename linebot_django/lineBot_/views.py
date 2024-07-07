@@ -70,10 +70,16 @@ def resHandler(m):
         return crawler(board,goods,page)
     elif re.search("chat", m) is not None: 
         mesList = m.split()
+        content = "假裝你接收到空白訊息，隨機回復生成文字"
+        response = None
         if len(mesList) > 1:
-            return model.generate_content(mesList[1])
+            response =  model.generate_content(mesList[1])
+            return response.text
         else:
-            return model.generate_content('假裝你接收到空白訊息，隨機回復生成文字')
+            response =  model.generate_content(content)
+            return response.text
+        return "好像出了點錯誤QQ"
+      
     else:
         return m
 
